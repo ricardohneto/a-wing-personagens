@@ -1,0 +1,29 @@
+<div class="col-md-4 offset-md-2">
+  <div class="card">
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <input type="text" name="nom_personagem" [(ngModel)]="personagem.nom_personagem" placeholder="Nome do Personagem" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+          <textarea name="descricao" [(ngModel)]="personagem.descricao" placeholder="Descricao do Personagem" rows="2" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+          <input type="url" name="imagem" [(ngModel)]="personagem.imagem" placeholder="Imagem do Personagem" class="form-control">
+        </div>
+        <button class="btn btn-success btn-block" (click)="edit ? updatePersonagem() : saveNewPersonagem()">
+           Finalizar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="card card-body text-center">
+    <img [src]="personagem.imagem == '' ? '/assets/sem.png' : personagem.imagem" class="card-img-top">
+    <h3>{{personagem.cod_personagem}} . {{personagem.nom_personagem == '' ? 'Nome do Jogo' : personagem.nom_personagem}}</h3>
+    <p>{{personagem.descricao == '' ? 'Descrição' : personagem.descricao}}</p>
+    <p>{{personagem.created_at | date: 'dd-MM-yyyy'}}</p>
+  </div>
+</div>

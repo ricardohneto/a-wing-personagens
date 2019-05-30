@@ -1,0 +1,17 @@
+<div class="col-md-4" *ngFor="let personagem of personagens">
+  <div class="card text-center">
+    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+      {{personagem.nom_personagem}}
+      <button class="btn btn-danger" (click)="deletePersonagem(personagem.cod_personagem)">
+        <i class="far fa-trash-alt"></i>
+      </button>
+    </div>
+    <img [src]="personagem.imagem" class="card-img-top">
+    <div class="card-body">
+      <p>{{personagem.descricao}}</p>
+      <a [routerLink]="['/personagens/editar', personagem.cod_personagem]" class="btn btn-info btn-block">
+        EDITAR PERSONAGEM
+      </a>
+    </div>
+  </div>
+</div>
